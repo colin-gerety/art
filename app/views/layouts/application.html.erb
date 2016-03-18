@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MomoLoloArt</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="header">
+  <div class="menubar">
+    <div class="menuitem">
+      <%= link_to('Current Art', controller: 'currents', action: 'index') %>
+    </div>
+    <div class="menuitem">
+      <%= link_to('Create Labels', controller: 'currents', action: 'labels') %>
+    </div>
+    <div class="menuitem">
+      <%= link_to('Artists', controller: 'artists', action: 'index') %>
+    </div>
+    <div class="menuitem">
+      <%= link_to('New Art', controller: 'art_pieces', action: 'new') %>
+    </div>
+    <div class="menuitem">
+      <%= link_to('All Art', controller: 'art_pieces', action: 'index') %>
+    </div>
+  </div>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

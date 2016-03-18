@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @artist.phone %>
+</p>
+
+<p>
+  <strong>Web site:</strong>
+  <%= @artist.web_site %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @artist.email %>
+</p>
+
+<% if !@artist.art_pieces.blank? %>
+  <div class="gallery">
+    <% @artist.art_pieces.each do |art_piece| %>
+     <%= render partial: "art_piece", locals: { art_piece: art_piece } %> 
+    <% end %> 
+  </div>
+<% end %> 
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
