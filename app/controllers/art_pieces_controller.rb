@@ -4,7 +4,7 @@ class ArtPiecesController < ApplicationController
   # GET /art_pieces
   # GET /art_pieces.json
   def index
-    @art_pieces = ArtPiece.all
+    @art_pieces = ArtPiece.joins(:artist).order('art_pieces.currently_hanging desc, artists.name asc')
   end
 
   # GET /art_pieces/1
