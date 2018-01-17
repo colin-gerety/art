@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: momo_lolo_art_production
+  database: momo_lolo_art
   # username: momo_lolo_art
   # password: <%= ENV['MOMO_LOLO_ART_DATABASE_PASSWORD'] %>
 
