@@ -31,6 +31,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process :orient_picture # this should go before all other "process" steps
+
+  def orient_picture
+    manipulate! do |image|
+      Rails.logger.debug("Orienting image.") 
+      image.tap(&:auto_orient!)
+    end
+  end
+
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_limit => [200, 200]

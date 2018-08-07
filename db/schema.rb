@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,31 +12,30 @@
 
 ActiveRecord::Schema.define(version: 20150405003107) do
 
-  create_table "art_pieces", force: :cascade do |t|
-    t.string   "title",             limit: 255
-    t.string   "media",             limit: 255
-    t.float    "price",             limit: 24
-    t.boolean  "needs_label",       limit: 1
-    t.boolean  "currently_hanging", limit: 1
-    t.integer  "momo_percent",      limit: 4,     default: 30
-    t.integer  "artist_percent",    limit: 4,     default: 70
-    t.integer  "other_percent",     limit: 4,     default: 0
-    t.text     "note",              limit: 65535
-    t.integer  "artist_id",         limit: 4
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-    t.string   "image",             limit: 255
+  create_table "art_pieces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "media"
+    t.float "price", limit: 24
+    t.boolean "needs_label"
+    t.boolean "currently_hanging"
+    t.integer "momo_percent", default: 30
+    t.integer "artist_percent", default: 70
+    t.integer "other_percent", default: 0
+    t.text "note"
+    t.bigint "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.index ["artist_id"], name: "index_art_pieces_on_artist_id"
   end
 
-  add_index "art_pieces", ["artist_id"], name: "index_art_pieces_on_artist_id", using: :btree
-
-  create_table "artists", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "web_site",   limit: 255
-    t.string   "email",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "artists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "web_site"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "art_pieces", "artists"
